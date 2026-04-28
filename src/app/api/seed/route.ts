@@ -1,0 +1,95 @@
+import { NextResponse } from 'next/server';
+import { kv } from '@vercel/kv';
+import { isAuthenticated } from '@/lib/auth';
+
+/*
+  /api/seed — KV database-г анхны өгөгдлөөр дүүргэх
+  Vercel deploy хийсний дараа 1 удаа л дуудна.
+  Admin нэвтэрсэн байх шаардлагатай.
+*/
+
+const INITIAL_CONTENT = {
+  hero: {
+    name: "Sakuya",
+    firstLetter: "S",
+    restOfName: "akuya",
+    subtitle: "Game Developer & Resonator",
+    description: "Crafting immersive digital experiences from the heart of Mongolia. Where code harmonizes with the frequencies of imagination.",
+    availableForWork: true
+  },
+  about: {
+    bio: "I'm Sakuya, a game developer and software engineer from Ulaanbaatar, Mongolia. My journey started with modding games as a teenager, and evolved into building full-stack applications and interactive experiences.",
+    bio2: "By day, I architect robust web platforms and craft game mechanics. By night, I roam the world of Wuthering Waves, where Phrolova's haunting melodies and Havoc frequencies inspire my creative process.",
+    bio3: "I believe the best digital experiences feel like stepping into another world. Every project I build carries that philosophy — immersive, polished, and unforgettable.",
+    quote: "In the silence between frequencies, creation happens.",
+    quoteAuthor: "Sakuya",
+    location: "Ulaanbaatar, Mongolia",
+    focus: "Game Dev, Full-Stack, Interactive Media",
+    wuwaMain: "Phrolova (Havoc Resonator)",
+    languages: "TypeScript, Rust, C#, Python",
+    passion: "Where code meets art meets music",
+    yearsExp: "5+",
+    projectsShipped: "30+",
+    wuwaHours: "∞",
+    favResonator: "1"
+  },
+  skills: [
+    { title: "Combat Arts", subtitle: "Languages & Frameworks", color: "#c91440", skills: [
+      { name: "TypeScript", level: 95, icon: "⚔️" },
+      { name: "React / Next.js", level: 92, icon: "🔮" },
+      { name: "Rust", level: 78, icon: "🗡️" },
+      { name: "Python", level: 85, icon: "🐍" },
+      { name: "C# / Unity", level: 80, icon: "🎮" }
+    ]},
+    { title: "Resonance Skills", subtitle: "Tools & Technologies", color: "#7b2d8e", skills: [
+      { name: "Three.js / WebGL", level: 88, icon: "✨" },
+      { name: "Node.js", level: 90, icon: "⚡" },
+      { name: "PostgreSQL", level: 82, icon: "🗃️" },
+      { name: "Docker / K8s", level: 75, icon: "📦" },
+      { name: "GSAP / Framer", level: 93, icon: "🌊" }
+    ]},
+    { title: "Forte Abilities", subtitle: "Soft Skills & Specialties", color: "#b8b8c8", skills: [
+      { name: "Game Design", level: 90, icon: "🎯" },
+      { name: "UI/UX Design", level: 85, icon: "🎨" },
+      { name: "Audio Engineering", level: 70, icon: "🎵" },
+      { name: "Team Leadership", level: 88, icon: "👑" },
+      { name: "Creative Direction", level: 92, icon: "💫" }
+    ]}
+  ],
+  projects: [
+    { id: "1", title: "Resonance Engine", category: "Game Development", description: "A custom 2D game engine with frequency-based audio visualisation, particle systems, and a built-in level editor.", tags: ["Rust", "WebGPU", "WASM", "Audio"], image: "/assets/projects/resonance-engine.jpg", link: "#", color: "#c91440", visible: true },
+    { id: "2", title: "WuWa Companion", category: "Mobile App", description: "Wuthering Waves companion app with character builds, echo optimization, team synergy calculator, and community tier lists.", tags: ["React Native", "TypeScript", "Firebase", "API"], image: "/assets/projects/wuwa-companion.jpg", link: "#", color: "#7b2d8e", visible: true },
+    { id: "3", title: "Nomad Marketplace", category: "Full-Stack Platform", description: "E-commerce platform connecting Mongolian artisans with global buyers. Real-time bidding, AI-powered recommendations.", tags: ["Next.js", "PostgreSQL", "Stripe", "AI/ML"], image: "/assets/projects/nomad-market.jpg", link: "#", color: "#c91440", visible: true },
+    { id: "4", title: "Havoc Visualizer", category: "Creative Coding", description: "Real-time audio visualizer inspired by Phrolova's Havoc resonance. Transforms music into dynamic 3D environments.", tags: ["Three.js", "WebAudio", "GLSL", "Creative"], image: "/assets/projects/havoc-viz.jpg", link: "#", color: "#7b2d8e", visible: true }
+  ],
+  contact: {
+    email: "abrenzevseg@gmail.com",
+    github: "https://github.com/sakuya",
+    twitter: "https://twitter.com/sakuya",
+    discord: "#",
+    linkedin: "#",
+    heading: "Open a Frequency",
+    description: "Have a project in mind, want to collaborate, or just want to talk about Wuthering Waves builds? Send a signal."
+  },
+  footer: {
+    tagline: "Game Developer & Resonator.",
+    location: "Ulaanbaatar, Mongolia.",
+    copyright: "All rights resonated."
+  }
+};
+
+export async function POST() {
+  try {
+    const authed = await isAuthenticated();
+    if (!authed) return NextResponse.json({ error: 'Admin нэвтрэх шаардлагатай' }, { status: 401 });
+
+    await kv.set('site_content', INITIAL_CONTENT);
+    return NextResponse.json({ success: true, message: 'KV database амжилттай бөглөгдлөө!' });
+  } catch (err: any) {
+    return NextResponse.json({ error: err.message }, { status: 500 });
+  }
+}
+
+export async function GET() {
+  return NextResponse.json({ info: 'POST хүсэлт илгээж KV-г seed хийнэ. Admin нэвтэрсэн байх шаардлагатай.' });
+}
