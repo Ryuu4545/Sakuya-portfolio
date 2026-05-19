@@ -6,12 +6,12 @@ import { useRouter } from 'next/navigation';
 type Tab = 'hero' | 'about' | 'skills' | 'projects' | 'contact' | 'footer';
 
 const TABS: { key: Tab; label: string; icon: string }[] = [
-  { key: 'hero', label: 'Нүүр хуудас', icon: '🏠' },
-  { key: 'about', label: 'Миний тухай', icon: '👤' },
-  { key: 'skills', label: 'Ур чадвар', icon: '⚔️' },
-  { key: 'projects', label: 'Төслүүд', icon: '💼' },
-  { key: 'contact', label: 'Холбоо барих', icon: '📧' },
-  { key: 'footer', label: 'Footer', icon: '🔻' },
+  { key: 'hero', label: 'Нүүр хуудас', icon: '' },
+  { key: 'about', label: 'Миний тухай', icon: '' },
+  { key: 'skills', label: 'Ур чадвар', icon: '' },
+  { key: 'projects', label: 'Төслүүд', icon: '' },
+  { key: 'contact', label: 'Холбоо барих', icon: '' },
+  { key: 'footer', label: 'Footer', icon: '' },
 ];
 
 export default function AdminDashboard() {
@@ -92,10 +92,10 @@ export default function AdminDashboard() {
           </nav>
           <div className="border-t border-silver/5 p-4 space-y-2">
             <a href="/" target="_blank" className="flex w-full items-center gap-2 rounded-lg px-4 py-2.5 font-heading text-sm text-silver-dark/50 hover:bg-phantom/50 hover:text-silver-light">
-              <span>🌐</span><span className="uppercase tracking-wider">Сайт харах</span>
+              <span></span><span className="uppercase tracking-wider">Сайт харах</span>
             </a>
             <button onClick={handleLogout} className="flex w-full items-center gap-2 rounded-lg px-4 py-2.5 font-heading text-sm text-crimson/60 hover:bg-crimson/5 hover:text-crimson">
-              <span>🚪</span><span className="uppercase tracking-wider">Гарах</span>
+              <span></span><span className="uppercase tracking-wider">Гарах</span>
             </button>
           </div>
         </div>

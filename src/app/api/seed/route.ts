@@ -35,25 +35,25 @@ const INITIAL_CONTENT = {
   },
   skills: [
     { title: "Combat Arts", subtitle: "Languages & Frameworks", color: "#c91440", skills: [
-      { name: "TypeScript", level: 95, icon: "⚔️" },
-      { name: "React / Next.js", level: 92, icon: "🔮" },
-      { name: "Rust", level: 78, icon: "🗡️" },
-      { name: "Python", level: 85, icon: "🐍" },
-      { name: "C# / Unity", level: 80, icon: "🎮" }
+      { name: "TypeScript", level: 95, icon: "" },
+      { name: "React / Next.js", level: 92, icon: "" },
+      { name: "Rust", level: 78, icon: "" },
+      { name: "Python", level: 85, icon: "" },
+      { name: "C# / Unity", level: 80, icon: "" }
     ]},
     { title: "Resonance Skills", subtitle: "Tools & Technologies", color: "#7b2d8e", skills: [
-      { name: "Three.js / WebGL", level: 88, icon: "✨" },
-      { name: "Node.js", level: 90, icon: "⚡" },
-      { name: "PostgreSQL", level: 82, icon: "🗃️" },
-      { name: "Docker / K8s", level: 75, icon: "📦" },
-      { name: "GSAP / Framer", level: 93, icon: "🌊" }
+      { name: "Three.js / WebGL", level: 88, icon: "" },
+      { name: "Node.js", level: 90, icon: "" },
+      { name: "PostgreSQL", level: 82, icon: "" },
+      { name: "Docker / K8s", level: 75, icon: "" },
+      { name: "GSAP / Framer", level: 93, icon: "" }
     ]},
     { title: "Forte Abilities", subtitle: "Soft Skills & Specialties", color: "#b8b8c8", skills: [
-      { name: "Game Design", level: 90, icon: "🎯" },
-      { name: "UI/UX Design", level: 85, icon: "🎨" },
-      { name: "Audio Engineering", level: 70, icon: "🎵" },
-      { name: "Team Leadership", level: 88, icon: "👑" },
-      { name: "Creative Direction", level: 92, icon: "💫" }
+      { name: "Game Design", level: 90, icon: "" },
+      { name: "UI/UX Design", level: 85, icon: "" },
+      { name: "Audio Engineering", level: 70, icon: "" },
+      { name: "Team Leadership", level: 88, icon: "" },
+      { name: "Creative Direction", level: 92, icon: "" }
     ]}
   ],
   projects: [
