@@ -2,12 +2,6 @@ import { kv } from '@vercel/kv';
 import fs from 'fs';
 import path from 'path';
 
-/*
-  CONTENT MANAGER
-  - Vercel дээр: Vercel KV (Redis) ашиглана
-  - Localhost дээр: content.json файл ашиглана (KV_REST_API_URL байхгүй бол)
-*/
-
 export interface SiteContent {
   hero: any;
   about: any;
