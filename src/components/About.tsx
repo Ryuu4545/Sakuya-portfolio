@@ -14,17 +14,17 @@ export default function About() {
   const itemVariants = { hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } } };
 
   const stats = [
-    { value: about?.yearsExp || '5+', label: 'Years Experience' },
-    { value: about?.projectsShipped || '30+', label: 'Projects Shipped' },
+    { value: about?.yearsExp || '3+', label: 'Years Experience' },
+    { value: about?.projectsShipped || '10+', label: 'Projects Shipped' },
     { value: about?.wuwaHours || '∞', label: 'Hours in WuWa' },
     { value: about?.favResonator || '1', label: 'Favourite Resonator' },
   ];
 
   const quickInfo = [
     ['Location', about?.location || 'Ulaanbaatar, Mongolia 🇲🇳'],
-    ['Focus', about?.focus || 'Game Dev, Full-Stack'],
+    ['Focus', about?.focus || 'Web Dev, Full-Stack'],
     ['WuWa Main', about?.wuwaMain || 'Phrolova'],
-    ['Languages', about?.languages || 'TypeScript, Rust, C#, Python'],
+    ['Languages', about?.languages || 'JS, PHP, C#, Python'],
     ['Passion', about?.passion || 'Where code meets art meets music'],
   ];
 

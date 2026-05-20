@@ -58,7 +58,7 @@ export default function Contact() {
           {/* Success message */}
           {status === 'sent' && (
             <div className="mb-6 rounded-lg border border-green-500/30 bg-green-500/10 px-4 py-3 text-sm text-green-400">
-              ✓ Мессеж амжилттай илгээгдлээ! Баярлалаа.
+              Мессеж амжилттай илгээгдлээ! Баярлалаа.
             </div>
           )}
 
@@ -95,7 +95,7 @@ export default function Contact() {
             <button type="submit" disabled={status === 'sending'}
               className="group relative overflow-hidden rounded-sm bg-crimson px-10 py-3.5 font-heading text-sm font-semibold uppercase tracking-[0.2em] text-white transition-all duration-300 hover:bg-crimson-light hover:shadow-lg hover:shadow-crimson/30 disabled:opacity-50">
               <span className="relative z-10">
-                {status === 'sending' ? '⏳ Илгээж байна...' : status === 'sent' ? '✓ Илгээгдлээ' : 'Transmit'}
+                {status === 'sending' ? 'Илгээж байна...' : status === 'sent' ? 'Илгээгдлээ' : 'Transmit'}
               </span>
               <div className="absolute inset-0 shimmer" />
             </button>

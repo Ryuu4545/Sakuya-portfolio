@@ -45,7 +45,7 @@ export default function AdminDashboard() {
         body: JSON.stringify({ section, data }),
       });
       const result = await res.json();
-      if (res.ok) { setContent(result.content); showToast('✓ Амжилттай хадгаллаа!'); }
+      if (res.ok) { setContent(result.content); showToast('Амжилттай хадгаллаа!'); }
       else { showToast('Алдаа: ' + result.error); }
     } catch { showToast('Серверт холбогдож чадсангүй'); }
     setSaving(false);
@@ -227,7 +227,7 @@ function SkillsEditor({ data, onSave, saving }: { data: any[]; onSave: (d: any) 
   };
 
   const addCategory = () => {
-    setCategories([...categories, { title: 'Шинэ ангилал', subtitle: 'Тодорхойлолт', color: '#c91440', skills: [{ name: 'Ур чадвар', level: 50, icon: '⭐' }] }]);
+    setCategories([...categories, { title: 'Шинэ ангилал', subtitle: 'Тодорхойлолт', color: '#c91440', skills: [{ name: 'Ур чадвар', level: 50, icon: '' }] }]);
     setOpenCat(categories.length);
   };
 
@@ -310,7 +310,6 @@ function SkillsEditor({ data, onSave, saving }: { data: any[]; onSave: (d: any) 
   </div>);
 }
 
-/* ── Projects Editor ── */
 function ProjectsEditor({ data, onSave, saving }: { data: any[]; onSave: (d: any) => void; saving: boolean }) {
   const [projects, setProjects] = useState([...data]);
   const [editIdx, setEditIdx] = useState<number | null>(null);
@@ -383,7 +382,6 @@ function ContactEditor({ data, onSave, saving }: { data: any; onSave: (d: any) =
   </div>);
 }
 
-/* ── Footer Editor ── */
 function FooterEditor({ data, onSave, saving }: { data: any; onSave: (d: any) => void; saving: boolean }) {
   const [form, setForm] = useState({ ...data });
   const u = (k: string, v: any) => setForm({ ...form, [k]: v });
